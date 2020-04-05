@@ -1,0 +1,41 @@
+{% load static %}
+<!doctype html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="{% static 'tasks/main.css' %}">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <title></title>
+    </head>
+    <body>
+        <style>
+            p {
+                font-size: 250%;
+            }
+            body {
+                background-color:lightblue;
+            }
+            p {
+                color: red;
+            }
+            input{
+                width: 100%;
+                padding: 12px 20px;
+                margin: 8px 0;
+                box-sizing: border-box;
+            }
+
+            input::placeholder {
+                color: #d3d3d3;
+            }
+        </style>
+        <div class="center-column">
+            <p>Are you sure to delete "{{item}}"?</p>
+            <a class="btn btn-success btn-lg btn-block" href="{% url 'list' %}">Cancel</a>
+            <form method="POST" action="">
+                {% csrf_token %}
+                <input class="btn btn-info btn-lg btn-block" type="submit" value="Delete">
+            </form>
+        </div>
+    </body>
+</html>
